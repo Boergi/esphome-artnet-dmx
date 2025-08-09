@@ -10,7 +10,7 @@ namespace esphome
         class ArtNetDMXOutput : public Component
         {
         public:
-            void set_dere_pin(uint8_t pin) { dere_pin_ = pin; }
+            void set_dere_pin(GPIOPin *pin) { dere_pin_ = pin; }
             void set_uart(UARTComponent *uart) { uart_ = uart; }
             void set_universe(uint16_t universe) { universe_ = universe; }
 
@@ -20,9 +20,9 @@ namespace esphome
         protected:
             void send_dmx(uint16_t length);
 
-            uint8_t dere_pin_;
-            UARTComponent *uart_;
-            uint16_t universe_;
+            GPIOPin *dere_pin_{nullptr};
+            UARTComponent *uart_{nullptr};
+            uint16_t universe_{0};
             AsyncUDP udp_;
             uint8_t dmx_data_[512] = {0};
         };
