@@ -1,7 +1,11 @@
 #pragma once
 #include "esphome.h"
+#include "esphome/components/uart/uart.h"
 #include <WiFi.h>
 #include <WiFiUdp.h>
+
+namespace esphome {
+namespace artnet_dmx {
 
 namespace esphome
 {
