@@ -2,7 +2,7 @@ import esphome.codegen as cg
 import esphome.config_validation as cv
 from esphome.components import uart
 from esphome import pins
-from esphome.const import CONF_ID  # <— HIER importieren
+from esphome.const import CONF_ID
 
 CONF_DERE_PIN = "dere_pin"
 CONF_UNIVERSE = "universe"
@@ -21,7 +21,7 @@ CONFIG_SCHEMA = cv.Schema({
 DEPENDENCIES = ["uart"]
 
 async def to_code(config):
-    var = cg.new_Pvariable(config[CONF_ID])  # <-- jetzt korrekt
+    var = cg.new_Pvariable(config[CONF_ID])
     dere = await cg.gpio_pin_expression(config[CONF_DERE_PIN])
     cg.add(var.set_dere_pin(dere))
     uart_comp = await cg.get_variable(config[CONF_UART_ID])
