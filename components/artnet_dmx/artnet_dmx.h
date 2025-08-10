@@ -1,6 +1,6 @@
 #pragma once
 #include "esphome.h"
-#include "esp32/AsyncUDP.h"   // aus ESP32-Arduino-Core
+#include <AsyncUDP.h>  // aus ESP32-Arduino-Core
 
 namespace esphome {
 namespace artnet_dmx {
